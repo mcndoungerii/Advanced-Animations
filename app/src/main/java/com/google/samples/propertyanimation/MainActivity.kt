@@ -122,10 +122,16 @@ class MainActivity : AppCompatActivity() {
         animator.start()
     }
 
+
     @SuppressLint("ObjectAnimatorBinding")
     private fun colorizer() {
-        val animator = ObjectAnimator.ofInt(star.parent,
-            "backgroundColor", Color.BLACK,Color.RED).start()
+        val animator = ObjectAnimator.ofArgb(star.parent,
+            "backgroundColor", Color.BLACK,Color.RED)
+
+        animator.setDuration(500)
+        animator.repeatMode = ObjectAnimator.REVERSE
+        animator.repeatCount = 1
+        animator.start()
     }
 
     private fun shower() {
